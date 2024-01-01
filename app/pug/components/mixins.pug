@@ -1,0 +1,18 @@
+mixin showItemInfo(header, desc)
+        h3=header 
+        p=desc
+
+mixin createRows(listSections)
+    each block in listSections
+        .contaner-rows-item
+            .contaner-rows-item-img
+                img(src=block.imageUrl)
+        .contaner-rows-item
+            .contaner-rows-item-desc
+                +showItemInfo(block.header, block.desc)
+
+mixin createArticle(amurskyImage, amursky, amurskyDesc)
+        .contaner-heading-img
+            img(src=amurskyImage)
+        .contaner-heading-head=amursky
+        .contaner-heading-desc=amurskyDesc

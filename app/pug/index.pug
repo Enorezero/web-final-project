@@ -1,0 +1,17 @@
+extends template
+
+block variables
+	-var title = 'Главная страница'
+	-var articleTitle='Николай Николаевич Муравьёв-Амурский'
+	-var image ='https://sun9-22.userapi.com/impg/GCO7vHhqoF6odkgw7nLc0II2obynl0w6uCrb9Q/6sqI7Kf8ZOI.jpg?size=92x130&quality=96&sign=78221b50639a99fb9e32f6d614ef48b6&c_uniq_tag=vKbEoij7pDs73dVd6fuPNhAbZZ9K1kZPbKM1u9iGCT4&type=album'
+	-var description = 'русский государственный и военный деятель, дипломат, генерал-губернатор и командующий войсками Восточной Сибири (1847–1861), благодаря плодотворной деятельности которого в середине XIX в. был решён «Амурский вопрос», к России присоединены Приамурье и Приморье, начато заселение и освоение далёкой окраины России – Дальнего Востока. Николай Муравьёв — выходец из старинного дворянского рода, прямой потомок лейтенанта Степана Воиновича Муравьёва, участника Второй Камчатской экспедиции Витуса Беринга. Будущий губернатор Восточной Сибири родился 11 августа 1809 года в имении Покровское под Петербургом. Его ждали воспитание и судьба согласно лучшим дворянским традициям: частный пансион Годениуса в Петербурге, Пажеский корпус, служба камер-пажом в свите великой княгини Елены Павловны. С вершины Амурского утёса, этого фасада Хабаровска, вглядывается в непокорённую даль сам Николай Муравьёв-Амурский, этот "Пётр I Дальнего Востока".'
+	-var listSections=[{'imageUrl':'https://kartinkin.net/pics/uploads/posts/2022-06/1656350634_10-kartinkin-net-p-metallicheskii-bik-art-obekt-krasivo-20.jpg','header':'«Железный бык»','desc':'Фигура быка, создана из металлолома.'},{'imageUrl':'https://avatars.mds.yandex.net/get-altay/2752367/2a0000017465fca223e1f54e293429dcc449/XXL_height','header':'Здание центра эстетического воспитания','desc':'Ранее считался лучшим в Западной и Восточной Сибири.'},{'imageUrl':'https://cs9.pikabu.ru/post_img/big/2016/11/25/5/1480058256191489112.jpg','header':'Памятник Невозмутимому коту','desc':'Композиция состоит из лавочки с восседающим на ней котом, кричащей сороки и лающего пса.'},{'imageUrl':'https://rus.team/images/article/45472/2019-01-30-241_77346-7_235105.webp','header':'Памятник пограничнику с собакой','desc':'Трехметровая скульптура солдата-пограничника. '}]
+block galery
+	include components/galery.pug
+block content
+	.content
+		include components/mixins.pug
+		.contaner-heading
+			+createArticle(image, articleTitle, description)
+		.contaner-rows
+			+createRows(listSections)

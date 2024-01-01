@@ -1,0 +1,222 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.search-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #808080;
+  padding: 3px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.search-bar .bar {
+  float: right;
+  width: 45%;
+}
+input {
+  width: 100%;
+}
+.lupa {
+  text-align: right;
+  padding-right: 2%;
+  margin-left: 1%;
+}
+.menu {
+  margin-bottom: 1%;
+}
+.menu-item {
+  display: block;
+  font-size: x-large;
+  font-weight: bold;
+  width: 15%;
+  padding: 1%;
+}
+.menu-item a {
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+}
+.menu-item a:hover {
+  color: #f00;
+}
+.menu-items {
+  background-color: #d3d3d3;
+  display: flex;
+  align-items: center;
+}
+.site-theme {
+  display: block;
+  font-size: x-large;
+  font-weight: bold;
+  width: 24%;
+  padding: 1%;
+  margin-right: 3%;
+}
+.galery {
+  display: grid;
+  margin: auto;
+  width: 80%;
+  height: auto;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin-bottom: 2%;
+  width: 50%;
+  margin-top: 2px;
+}
+.galery .galery-item img {
+  width: 100%;
+  height: 100%;
+}
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 5%;
+}
+.content .contaner-heading {
+  display: block;
+  background-color: #fff;
+  width: 95%;
+  height: 100%;
+  margin: auto;
+  padding: auto;
+}
+.content .contaner-heading .contaner-heading-img img {
+  width: 20%;
+}
+.content .contaner-heading .contaner-heading-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+  font-size: x-large;
+  font-weight: bold;
+}
+.content .contaner-heading .contaner-heading-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  padding-top: 2%;
+  text-align: justify;
+  font-size: large;
+}
+.content .contaner-rows {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 0.8fr 1.2fr;
+  row-gap: 3%;
+  grid-template-rows: repeat(4, 0.6fr);
+}
+.content .contaner-rows .contaner-rows-item {
+  background-color: #fff;
+  height: 100%;
+}
+.content .contaner-rows .contaner-rows-item .contaner-rows-item-img {
+  display: flex;
+  height: 100%;
+}
+.content .contaner-rows .contaner-rows-item .contaner-rows-item-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100px;
+}
+.content .contaner-rows .contaner-rows-item .contaner-rows-item-desc {
+  padding-left: 2%;
+}
+.contaner-heading img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1%;
+  margin: auto;
+}
+footer {
+  display: block;
+  overflow: hidden;
+  padding: 1%;
+  margin: 0;
+  background-color: #808080;
+}
+.author {
+  float: left;
+  font-size: larger;
+}
+.contacts {
+  float: right;
+  font-size: larger;
+}
+@media (max-width: 1400px) {
+  .site-theme {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  .menu {
+    background-color: #f5f5f5;
+  }
+  .menu-items {
+    display: grid;
+    row-gap: 4%;
+    -moz-column-gap: 1.3%;
+    column-gap: 1.3%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    justify-content: space-evenly;
+    background-color: #f5f5f5;
+    width: 100%;
+    align-items: center;
+  }
+  .menu-item {
+    background-color: #d3d3d3;
+    text-align: center;
+    width: 100%;
+    padding: 1%;
+  }
+  .galery {
+    width: 50%;
+    margin-top: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .content {
+    margin-top: 2px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+  .contaner-heading {
+    display: block;
+    background-color: #fff;
+    width: 95%;
+    height: 100%;
+    justify-self: flex-start;
+    margin-bottom: 3%;
+  }
+  .contaner-rows {
+    display: grid;
+    width: 95%;
+    height: 100%;
+    grid-template-columns: 0.8fr 1.2fr;
+    row-gap: 3%;
+    grid-template-rows: repeat(4, 0.6fr);
+  }
+}

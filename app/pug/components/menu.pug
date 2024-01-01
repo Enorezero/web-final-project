@@ -1,0 +1,15 @@
+-var navMenuItems = {'Главное меню': 'sights-blg.html', 'Таблица': 'table.html', 'История арки': 'triumfal_arc.html'}
+-var siteTheme='Достопримечательности Благовещенска'
+
+.search-bar
+    .bar
+        form
+            input(type='text')
+    .lupa
+        | &#x1F50D;
+.menu
+    .menu-items
+        .site-theme=siteTheme
+        each path, name in navMenuItems ? navMenuItems : {}
+            .menu-item 
+                a(href=path)=name
