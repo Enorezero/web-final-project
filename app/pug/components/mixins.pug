@@ -11,8 +11,8 @@ mixin createRows(listSections)
             .contaner-rows-item-desc
                 +showItemInfo(block.header, block.desc)
 
-mixin createArticle(amurskyImage, amursky, amurskyDesc)
+mixin createArticle(image, articleTitle, description)
         .contaner-heading-img
-            img(src=amurskyImage)
-        .contaner-heading-head=amursky
-        .contaner-heading-desc=amurskyDesc
+            img(src=image)
+        .contaner-heading-head=articleTitle
+        .contaner-heading-desc=description
