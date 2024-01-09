@@ -1,20 +1,25 @@
 unconsciously = auto
+full = 100%
 
-html 
-	height 100%
-	width @height
-	min-width 600px
-body
-	width 100%
-	height @width
-	margin 0
-	padding 0
 style-content(type)
 	justify-content type
 	align-items type
 
+style-fullscreen()
+	height full
+	width full
+
+
+html 
+	style-fullscreen()
+	min-width 600px
+body
+	style-fullscreen()
+	margin 0
+	padding 0
+
 .search-bar 
-	width 100%
+	width full
 	display flex
 	flex-direction row
 	background-color grey
@@ -23,39 +28,43 @@ style-content(type)
 	& .bar 
 		float right
 		width 45%
-input 
-	width 100%
-.lupa 
-	text-align right
-	padding-right 2%
-	margin-left 1%
+	form
+		& input 
+			width full
+		.lupa 
+			text-align right
+			padding-right 2%
+			margin-left 1%
+
+
 .menu 
 	margin-bottom 1%
-.menu-item 
-	display block
-	font-size x-large
-	font-weight bold
-	width 15%
-	padding 1%
-	& a 
-		text-align center
-		text-decoration none
-		color black
-		font-size 20px
-		&:hover 
-			color red
-.menu-items 
-	background-color lightgray
-	display flex
-	align-items center
+	.menu-items 
+		background-color lightgray
+		display grid
+		grid-template-columns repeat(4, 1fr)
+		align-items center
+		.site-theme 
+			display block
+			font-size x-large
+			font-weight bold
+			width 100%
+			padding 1%
+			margin-right 3%
+		.menu-item 
+			display block
+			font-size x-large
+			font-weight bold
+			width full
+			padding 1%
+			& a 
+				text-align center
+				text-decoration none
+				color black
+				font-size 20px
+				&:hover 
+					color red
 
-.site-theme 
-	display block
-	font-size x-large
-	font-weight bold
-	width 24%
-	padding 1%
-	margin-right 3%
 .galery 
 	display grid
 	margin unconsciously
@@ -69,6 +78,11 @@ input
 		& img 
 			width 100%
 			height @width
+.image-arc
+	display flex
+	flex-direction column
+	width 50%
+	height 40%
 .content 
 	display grid
 	grid-template-columns 1fr 1fr
@@ -80,9 +94,15 @@ input
 		display block
 		background-color white
 		width 95%
-		height 100%
+		height full
 		margin unconsciously
 		padding @margin
+		& img 
+			display flex
+			flex-direction column
+			align-items center
+			padding-top 1%
+			margin unconsciously
 		.contaner-heading-img img 
 			width 20%
 		.contaner-heading-head 
@@ -103,8 +123,7 @@ input
 
 	.contaner-rows 
 		display grid
-		width 100%
-		height 100%
+		style-fullscreen()
 		grid-template-columns 0.8fr 1.2fr
 		row-gap 3%
 		grid-template-rows repeat(4,0.6fr)
@@ -122,12 +141,6 @@ input
 					max-height 100px
 			.contaner-rows-item-desc 
 				padding-left 2%
-.contaner-heading img 
-	display flex
-	flex-direction column
-	align-items center
-	padding-top 1%
-	margin unconsciously
 footer 
 	display block
 	overflow hidden
@@ -141,70 +154,80 @@ footer
 	float right
 	font-size larger
 
-@media (max-width:1400px){
+.tableBlock
+	margin 10px
+	padding 10px
+	overflow auto
 
-    .site-theme {
-        display: none;
-        width: 0;
-        height:0;
-    }
+table
+	border-collapse collapse
+	width 95%
+	text-align center
+	margin auto
 
-    .menu {
-        background-color: whitesmoke;
-    }
+.options-block
+	margin-left 5%
+	margin-bottom 2%
+	& form
+		margin 1%
 
-    .menu-items {
-        display: grid;
-        row-gap: 4%;
-        column-gap: 1.3%;
-        grid-template-columns: repeat(2,1fr);
-        grid-template-rows: auto;
-        justify-content: space-evenly;
-        background-color: whitesmoke;
-        width: 100%;
-        align-items: center;
-        
-    }
 
-    .menu-item {
-        background-color: lightgray;
-        text-align: center;
-        width: 100%;
-        padding: 1%;
-    }
+table, td, th
+	border 1px solid 
 
-    .galery {
-        width: 50%;
-        margin-top: 2px;
-        display: flex;
-        flex-direction: column;
-        style-content(center);
-        align-content: center;
-    }
+@media (max-width 1400px)
 
-    .content {
-        margin-top: 2px;
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        style-content(center);
-    }
+	.menu 
+		background-color whitesmoke
+		.menu-items 
+			display grid
+			row-gap 4%
+			column-gap 1.3%
+			grid-template-columns repeat(2,1fr)
+			grid-template-rows auto
+			justify-content space-evenly
+			background-color whitesmoke
+			width 100%
+			align-items center
+			.site-theme 
+				display none
+				width 0
+				height 0
+			.menu-item 
+				background-color lightgray
+				text-align center
+				width 100%
+				padding 1%
 
-    .contaner-heading {
-        display: block;
-        background-color: white;
-        width: 95%;
-        height: 100%;
-        justify-self:flex-start;
-        margin-bottom: 3%;
-    }
+	.options-block
+		grid-template-rows repeat(3, min-content)
+		grid-template-columns 1fr
 
-    .contaner-rows {
-        display: grid;
-        width: 95%;
-        height: 100%;
-        grid-template-columns: 0.8fr 1.2fr;
-        row-gap: 3%;
-        grid-template-rows: repeat(4,0.6fr);
-    }
-}
+	.galery 
+		width 50%
+		margin-top 2px
+		display flex
+		flex-direction column
+		style-content(center);
+		align-content center
+
+	.content 
+		margin-top 2px
+		display flex
+		flex-direction column
+		width 50%
+		style-content(center)
+		.contaner-heading 
+			display block
+			background-color white
+			width 95%
+			height 100%
+			justify-self flex-start
+			margin-bottom 3%
+		.contaner-rows 
+			display grid
+			width 95%
+			height full
+			grid-template-columns 0.8fr 1.2fr
+			row-gap 3%
+			grid-template-rows repeat(4,0.6fr)

@@ -16,3 +16,85 @@ mixin createArticle(image, articleTitle, description)
             img(src=image)
         .contaner-heading-head=articleTitle
         .contaner-heading-desc=description
+
+mixin createGraph(fields, result)
+    details
+        summary График
+        form
+            table
+                tr
+                    th Значение по оси X
+                    th Результат
+                tr
+                    td
+                        each path, name in fields
+                            input(type='radio' name='ox' value=path id='radio') 
+                            label(for='radio')= name
+                            br
+                    td
+                        each path, name in result
+                            input(type='checkbox' name='oy' value= path id='checkbox')
+                            label(for='checkbox')= name
+                            br
+        input(type='button' value='Построить')
+        p График:
+
+mixin createSort(headers)
+    details
+        summary Сортировка
+        form
+        p Первый уровень
+            select(name='first_sort')
+                option(value=0)=Нет
+                -var i = 1
+                each opt in headers 
+                    option(value=i)=opt
+                    -i++ 
+            br
+            a По убыванию?
+                input(type='checkbox' name='decreasing_first')
+        p Второй уровень
+            select(name='second_sort')
+                option(value=0)=Нет
+                -var i = 1
+                each opt in headers 
+                    option(value=i)=opt
+                    -i++ 
+            br
+            a По убыванию?
+                input(type='checkbox' name='decreasing_second')
+        p Третий уровень
+            select(name='third_sort')
+                option(value=0)=Нет
+                -var i = 1
+                each opt in headers 
+                    option(value=i)=opt
+                    -i++ 
+            br
+            a По убыванию?
+                input(type='checkbox' name='decreasing_third')
+
+mixin createFilter(filterHeaders)
+    details
+        summary Фильтр
+        form
+            p
+                label(for='year_from') 
+                | Год:
+                br 
+                | от
+                input(type='text' name='year_from') 
+                | до
+                input(type='text' name='year_to')         
+            p
+                label(for='price_from') Стоимость:
+                br
+                | от
+                input(type='text' name='price_from') 
+                | до
+                input(type='text' name='price_to') 
+            each path, name in filterHeaders
+                p
+                    label(for=path)=path
+                    input(type='text' name=path)
+            input(type='button' value='Найти')
